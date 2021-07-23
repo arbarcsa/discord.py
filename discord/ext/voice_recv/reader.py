@@ -88,9 +88,9 @@ class AudioSink:
     def cleanup(self):
         pass
 
-    # @staticmethod
-    # def pack_data(data, user=None, packet=None):
-    #     return VoiceData(data, user, packet) # is this even necessary?
+    @staticmethod
+    def pack_data(data, user=None, packet=None):
+        return VoiceData(data, user, packet) # is this even necessary?
 
 class WaveSink(AudioSink):
     def __init__(self, destination):
