@@ -16,7 +16,7 @@ class VoiceRecvClient(discord.VoiceClient):
         self._id_to_ssrc = {}
 
     async def connect_websocket(self):
-        ws = await discord.gateway.DiscordVoiceWebSocket.from_client(self, hook=hook)
+        ws = await discord.gateway.DiscordVoiceWebSocket.from_client(cls=self, hook=hook)
         self._connected.clear()
         while ws.secret_key is None:
             await ws.poll_event()
